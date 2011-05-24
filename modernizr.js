@@ -777,7 +777,7 @@ window.Modernizr = (function( window, document, undefined ) {
                 attrs[ props[i] ] = !!(props[i] in inputElem);
             }
             return attrs;
-        })('autocomplete autofocus list placeholder max min multiple pattern required step'.split(' '));
+        })('autocomplete maxlength autofocus list placeholder max min multiple pattern required step'.split(' '));
 
         // Run through HTML5's new input types to see if the UA understands any.
         //   This is put behind the tests runloop because it doesn't return a
