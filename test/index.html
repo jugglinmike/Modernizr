@@ -62,7 +62,7 @@
       
       if (typeof Modernizr[prop] === 'function') continue;
       
-      if (prop == 'inputtypes' || prop == 'input') {
+      if (prop == 'inputtypes' || prop == 'input' || prop == 'textarea') {
         str += '<li><b>'+prop+'{}</b><ul>';
         for (var field in Modernizr[prop]) {
           str += '<li class="' + (Modernizr[prop][field] ? 'yes' : '') + '">' + field + ': ' + Modernizr[prop][field] + '</li>';

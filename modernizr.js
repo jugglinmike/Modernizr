@@ -53,6 +53,7 @@ window.Modernizr = (function( window, document, undefined ) {
      * Create the input element for various Web Forms feature tests.
      */
     inputElem = document.createElement('input'),
+	textareaElem = document.createElement('textarea'),
 
     smile = ':)',
 
@@ -776,8 +777,18 @@ window.Modernizr = (function( window, document, undefined ) {
             for ( var i = 0, len = props.length; i < len; i++ ) {
                 attrs[ props[i] ] = !!(props[i] in inputElem);
             }
+			attrs[ 'maxlength' ] = (!!(inputElem.maxLength === -1) || !!(inputElem.maxLength === 524288)) && !!(inputElem.maxLength !== 'undefined');
             return attrs;
-        })('autocomplete maxlength autofocus list placeholder max min multiple pattern required step'.split(' '));
+        })('accept autocomplete autofocus list placeholder max min multiple pattern required step formAction formEnctype formMethod formNoValidate formTarget'.split(' '));
+		
+		Modernizr['textarea'] = (function( props ) {
+			var attrs = {};
+            for ( var i = 0, len = props.length; i < len; i++ ) {
+                attrs[ props[i] ] = !!(props[i] in textareaElem);
+            }
+			attrs[ 'maxlength' ] = (!!(textareaElem.maxLength === -1) || !!(textareaElem.maxLength === 524288)) && !!(textareaElem.maxLength !== 'undefined');
+            return attrs;
+        })('autofocus cols dirname disabled form maxlength name spellcheck required rows wrap'.split(' '));
 
         // Run through HTML5's new input types to see if the UA understands any.
         //   This is put behind the tests runloop because it doesn't return a
